@@ -1,24 +1,51 @@
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
+import { persona } from './index';
+import { miPerro, miGato } from './index';
+import { auto, moto, camion } from './index';
+import { pago1, pago2, pago3 } from './index';
+import { cuenta } from "./index" 
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
+
+
+
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = ` 
+  <div class="contenedor">
+  <div class="header-titulos">
+    <h2> Bienvenido al curso de TypeScript</h2>
+    <p>Tema: interfaces, herencia, polimorfismo y encapsulamiento</p>
+  </div>
+
     <div class="card">
-      <button id="counter" type="button"></button>
+      <h3>Información del programador</h3>
+      <p><strong>Programador:</strong> ${persona.nombre}</p>
+      <p><strong>Edad:</strong> ${persona.edad} años</p>
+      <p><strong>Dirección:</strong> ${persona.direcion}</p>
+      <p><strong>Teléfono:</strong> ${persona.telefono}</p>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
+    <div class="card-animales">
+      <h3>Información de los animales</h3>
+      <p><strong>Nombre del perro:</strong> ${miPerro.nombre}</p>
+      <p><strong>Nombre del gato:</strong> ${miGato.nombre}</p>
+    </div>
+    <div class="coche-card">
+      <h3>Información de los vehículos</h3>
+      <p><strong>Coche:</strong> ${auto.marca}</p>
+      <p><strong>Moto:</strong> ${moto.marca}</p>
+      <p><strong>Camión:</strong> ${camion.marca}</p>
+    </div>
+    <div class="pago-card">
+      <h3>Información de los pagos</h3>
+      <p><strong>Pago con tarjeta:</strong> ${pago1.pagar(100)}</p>
+      <p><strong>Pago en efectivo:</strong> ${pago2.pagar(200)}</p>
+      <p><strong>Pago por transferencia:</strong> ${pago3.pagar(300)}</p>
+    </div>
+     <div class="card">
+    <h3>Cuenta bancaria</h3>
+    <p><strong>Saldo actual:</strong> ${cuenta.verSaldo()}</p>
+  </div>
   </div>
 `
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+
+
+
